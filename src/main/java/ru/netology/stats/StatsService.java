@@ -52,28 +52,28 @@ public class StatsService {
 
     //Метод Кол-во месяцев, в которых продажи были ниже среднего
     public long monthSalesBelowAverage(long[] sales) {
-
-
         int numberMonth = 0;//Номер месяца с продажей ниже среднего
-        for (long sale : sales) {
-            if (sale < averageSum(sales)) {
+        long average = averageSum(sales);
+                for (long sale : sales) {
+            if (sale < average) {
                 numberMonth = numberMonth + 1;
             }
-
         }
 
         return numberMonth;
     }
-        //Метод Кол-во месяцев, в которых продажи были выше среднего
-        public long monthSalesAboveAverage(long[] sales){
-            int numberMonth = 0;//Номер месяца с продажей выше среднего
-            for (long sale : sales) {
-                if (sale > averageSum(sales)) {
-                    numberMonth = numberMonth + 1;
-                }
+
+    //Метод Кол-во месяцев, в которых продажи были выше среднего
+    public long monthSalesAboveAverage(long[] sales) {
+        int numberMonth = 0;//Номер месяца с продажей выше среднего
+        long average = averageSum(sales);
+        for (long sale : sales) {
+            if (sale > averageSum(sales)) {
+                numberMonth = numberMonth + 1;
             }
-            return numberMonth;
         }
+        return numberMonth;
+    }
 
 
 }
